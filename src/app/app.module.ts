@@ -15,18 +15,18 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from './environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuardComponent } from './auth-guard/auth-guard.component';
+import { AuthGuard } from './auth-guard/auth-guard.component';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'post-list', pathMatch: 'full' },
-  { path: 'post-list', component: PostListComponent },
-  { path: 'post-add', component: PostEditComponent },
+  { path: 'post-list', component: PostListComponent, canActivate: [AuthGuard] },
+  { path: 'post-add', component: PostEditComponent, canActivate: [AuthGuard] },
   { path: 'authentication', component: AuthComponent },
-  { path: 'post-edit/:index', component: PostEditComponent },
-  { path: 'login', component: LoginComponent }, // Add this line
-  { path: 'register', component: RegisterComponent }, // Add this line
+  { path: 'post-edit/:index', component: PostEditComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ]
 
 @NgModule({
@@ -39,7 +39,7 @@ const routes: Routes = [
     PostEditComponent,
     LoginComponent,
     RegisterComponent,
-    AuthGuardComponent,
+    
   
     
 
@@ -61,7 +61,7 @@ const routes: Routes = [
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
