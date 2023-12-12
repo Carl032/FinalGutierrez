@@ -20,11 +20,11 @@ import { AuthGuard } from './auth-guard/auth-guard.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'post-list', pathMatch: 'full' },
-  { path: 'post-list', component: PostListComponent, canActivate: [AuthGuard] },
-  { path: 'post-add', component: PostEditComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: 'post-list', pathMatch: 'full'  },
+  { path: 'post-list', component: PostListComponent},
+  { path: 'post-add', component: PostEditComponent, },
   { path: 'authentication', component: AuthComponent },
-  { path: 'post-edit/:index', component: PostEditComponent, canActivate: [AuthGuard] },
+  { path: 'post-edit/:index', component: PostEditComponent,  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 ]
