@@ -15,11 +15,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from './environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth-guard/auth-guard.component';
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'  },
+  { path: '', redirectTo: 'post-list', pathMatch: 'full'  },
   { path: 'post-list', component: PostListComponent},
   { path: 'post-add', component: PostEditComponent, },
   { path: 'authentication', component: AuthComponent },
@@ -60,7 +61,7 @@ const routes: Routes = [
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
