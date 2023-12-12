@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
             window.alert('Login successful');
             this.router.navigate(['/post-list']);
         }).catch(error => {
-            window.alert('Login failed');
+            window.alert('Wrong Email or Password');
         });
     }
   }
