@@ -1,9 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
-import { Router } from '@angular/router'; // Add this import at the top
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +10,9 @@ import { Router } from '@angular/router'; // Add this import at the top
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  hidePassword = true;
 
   constructor(private authService: AuthService, private router: Router) { } 
-
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -22,6 +20,7 @@ export class LoginComponent implements OnInit {
       'password': new FormControl(null, Validators.required)
     });
   }
+
   onLogin() {
     if (!this.loginForm.valid) {
         return;
@@ -38,5 +37,9 @@ export class LoginComponent implements OnInit {
             window.alert('Wrong Email or Password');
         });
     }
+  }
+
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword;
   }
 }
