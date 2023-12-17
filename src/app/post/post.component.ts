@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  commentInput: any;
+  commentValue: string = '';
   memberName = "KING OG";
 
   constructor(private postService: PostService, private router: Router) {
@@ -33,11 +33,11 @@ export class PostComponent implements OnInit {
     this.postService.likePost(this.index)
   }
  
-  onAddComment(comment: string) {
-    
-    this.postService.addComment(this.index, comment);
+  onAddComment(commentInput: HTMLInputElement) {
+    this.postService.addComment(this.index, commentInput.value);
     this.comments = this.postService.getComments(this.index); // Refresh the comments
-  }
+    commentInput.value = ''; // Clear the input field
+}
   
   editComment(commentIndex: number, newComment: string) {
     this.postService.editComment(this.index, commentIndex, newComment);

@@ -1,7 +1,7 @@
 
 
 .post-box {
-    border: 5px solid #000;
+    border: 5px solid #ffffff;
     padding: 30px;
     width: 50%;
     margin-left:auto;
@@ -10,12 +10,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
     position: relative;
 }
-.BOT{
-   display: flex;
-margin: 0 30px;
+.BOT {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.button-group {
+    display: flex;
 }
 .button-container {
     position: absolute;

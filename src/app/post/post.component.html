@@ -66,8 +66,8 @@
     </ng-template>
   </div> 
 </form>
-<form (ngSubmit)="onAddComment(commentInput.value)">
-  <input #commentInput type="text" class="form-control" placeholder="comment" />
+<form (ngSubmit)="onAddComment(commentInput); commentInput.value=''">
+  <input #commentInput [(ngModel)]="commentValue" type="text" class="form-control" placeholder="comment" />
   <br /><button type="submit" class="btn btn-success">Add Comment</button>
 </form>
 <hr />
