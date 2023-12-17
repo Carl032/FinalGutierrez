@@ -18,8 +18,7 @@ export class ProfileUserComponent {
       };
   
       reader.readAsDataURL(event.target.files[0]);
-    }
-    
+    } 
   }
 }
 
