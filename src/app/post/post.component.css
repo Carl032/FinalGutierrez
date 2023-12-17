@@ -2,12 +2,23 @@
 
 .post-box {
     border: 5px solid #000;
-    padding: 20px;
-    width: 70%;
+    padding: 30px;
+    width: 50%;
     margin-left:auto;
     margin-right: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    position: relative;
 }
+.BOT{
+   display: flex;
+margin: 0 30px;
+}
+.button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
