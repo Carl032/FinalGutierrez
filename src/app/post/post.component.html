@@ -1,3 +1,4 @@
+
 <div class="post-box">
 <h3>{{ post?.title }}</h3>
 <img class="img-responsive" src="{{ post?.imgPath }}" />
@@ -6,6 +7,8 @@
 </p>
 <p>Author: {{ post?.author }}</p>
 <p>Date: {{ post?.dateCreated }}</p>
+
+<div class="BOT">
 <button class="btn btn-primary" (click)="onLike()">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -40,11 +43,13 @@
 <br />
 <br />
 
-<button class="btn btn-primary" (click)="onEdit()">edit</button> -
-<button class="btn btn-danger" (click)="delete()">delete</button>
+<div class="button-container">
+  <button class="btn btn-primary" (click)="onEdit()">edit</button> -
+  <button class="btn btn-danger" (click)="delete()">delete</button>
+</div>
 <br />
 <br />
-
+</div>
 <form>
   <div *ngFor="let comment of comments; let i = index">
     <ng-container *ngIf="i !== editingCommentIndex; else editingComment">

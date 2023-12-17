@@ -16,6 +16,8 @@ import { environment } from './environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth-guard/auth-guard.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 
 
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'post-edit/:index', component: PostEditComponent,  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile-user', component: ProfileUserComponent },
 ]
 
 @NgModule({
@@ -60,6 +63,7 @@ const routes: Routes = [
       appId: "1:485807502694:web:e5bdce9d310c11127c84a7"
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
